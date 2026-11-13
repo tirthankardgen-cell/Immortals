@@ -1,0 +1,15 @@
+[  2.48-  3.68] Speaker 1
+  Hindi: आम तौ पर
+  Hinglish: aam tau par
+[  4.08-  5.92] Speaker 1
+  Hindi: सेटेलाइट फोन का
+  Hinglish: settelaaitt phon kaa
+[  6.56- 11.20] Speaker 1
+  Hindi: मोबाइल फोन के स्थान पर उपयोग नहीं किया जा सकता है
+  Hinglish: mobaail phon ke sthaan par upayog nahiim kiyaa jaa sakataa hai
+[ 11.60- 15.28] Speaker 1
+  Hindi: क्योंकि सेटेलाइट फोन से कॉल करने
+  Hinglish: kyomki settelaaitt phon se kol karane
+[ 15.68- 21.76] Speaker 1
+  Hindi: के लिए आपको उपग्रह की रेखा पर घर के बाहर रहना पड़ेगा
+  Hinglish: ke lie aapako upagrah kii rekhaa par ghar ke baahar rahanaa paddegaa

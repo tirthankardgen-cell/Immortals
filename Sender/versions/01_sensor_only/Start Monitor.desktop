@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=Immortals Sensor Monitor
+Comment=Live sensor numbers, meters and waveforms
+Exec=/usr/bin/python3 /home/pi/Desktop/Immortals_Monitor/main.py
+Path=/home/pi/Desktop/Immortals_Monitor
+Icon=utilities-system-monitor
+Terminal=false
+StartupNotify=false
+Categories=Utility;
+X-GNOME-Autostart-enabled=true

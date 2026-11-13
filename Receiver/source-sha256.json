@@ -1,0 +1,15 @@
+{
+  "dashboard.html": "aa67a7d0320a57ed84dd28bcd1528a82923a36b55dac0e628910a5870a448aae",
+  "immortals-receiver.service": "b8a2d38b9f21a3da635c7fa5081c46ab43525d03b9cee8f55ffd543b0b18ff7f",
+  "main.py": "f2290a5c2a539280716dc147b2e87c5145f3b16a3b7ef24e1836ecbcbcc2821f",
+  "project.md": "4d5066567b31975fac1d50b02bf81b4c0c63fbcb914a153287ec5df9622c87b2",
+  "receiver.py": "92f219e9bb672d7ce5e693a049529f8fb1b9cc7d26b15d1a35977dc64eb0b384",
+  "receiver_config.json": "0c09783f19ab10a69749c5098b99172e47a83b6b474d8ade43901849ed778688",
+  "reference/receiver.py": "cc6d6e449f7736f2e29414fc5fb52fc863d97d4cab6bf28d9d61fd39559f12ae",
+  "requirements.txt": "9fa42cfe72f8a285e01b5ff07acae16427219a620a0ece5a2ff7269f53a60494",
+  "sync.py": "5d26576fc0581f7be2d06c24d9e7b130f07bd59fbfda45ce3985acc6c7f8ecc4",
+  "tests/test_live.py": "f1ece7f93d256b5f87f23e61f1ec555c555cc31ae3f72d7a224d628e5f0309b6",
+  "tests/test_receiver.py": "a909402dc92f1b08e8fa355b139cc785ddd4ddd0631dafdbe0b9ccff5eac1987",
+  "UPGRADE_NOTES.md": "bd43f673677530e511c29e4eef46e93bba28b5cb1d0a0d1715af64f2f041a81d",
+  "ZIGBEE_PROTOCOL.md": "3c563b7f5c1d71c3a1400b675217ad206d59dd522cb9dce927c1132ba1c27488"
+}

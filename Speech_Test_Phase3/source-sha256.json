@@ -1,0 +1,19 @@
+{
+  "files": {
+    "Immortals Speech Test.desktop": "ed7cbc3aea8a5ec4e77f6fc3a2ffebe1a86d16ae4d267f59f7c6c734cd057982",
+    "indic_backend.py": "5af5a10a58d321ef46ba3b7051a427089c48b92154c51ffb6f150f19194cce8b",
+    "indic_model_manifest.json": "b06839c3391357a87e66dd73a71e2d277329234f24f32780e3618ae8b6e0c673",
+    "install_indic_models.py": "56bf7796f0b1983139bdbd64d30b4db3811c50090637024cea9db93c805a0afe",
+    "launch_terminal.sh": "b2ba4b26dc838c0201fc5cd4e9d67c74e7292667a4a34b2387f34d095f3d50b5",
+    "README.md": "a232757f1486849afc2cfcf32571ae0523cfe3b26e1324c68e529cf59d5ae447",
+    "requirements.txt": "dd568a8997d6d6760af0ba0e6725c473eeddce64d16114bae0dda43f4dcf7391",
+    "romanize_text.py": "4777852ba239ba13772f3d80efb13dcdfdbe5814c76c02240de22d4f70fa89af",
+    "run.sh": "45bb6bab61b1a648aa92d819e4d684b316c4def08b9d71c1c4798c702e83993b",
+    "setup.sh": "a0f36780ca6e69734030be042272208b3a7c048750540f8286f179b757da974d",
+    "speech_test.py": "18e8b95981d235a5570b97a56f564102f3d527c5bf65793c4407415ad0f6e7a2",
+    "test_indic_backend.py": "106e3cc3ce951432cb75493ad8bc38f08f122da7199720e50b695df0921ff45e",
+    "test_speech_test.py": "4c25d89c4c75ccd3f52f1e8f294c47a0bffe5182e5a62c8763fb6a1a8d9c7b24",
+    "VALIDATION.md": "37b81207291d199a448e044014efcdecaf165a4542caaabccd659ee5464b80a8"
+  },
+  "scope": "Tester source, launchers, tests and documentation; Linux runtime and results excluded"
+}

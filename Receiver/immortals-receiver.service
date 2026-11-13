@@ -1,0 +1,17 @@
+[Unit]
+Description=Immortals Zigbee sensor receiver and dashboard
+After=network.target
+
+[Service]
+Type=simple
+User=pi
+WorkingDirectory=/home/pi/Desktop/Immortals_Receiver
+ExecStart=/home/pi/Desktop/Immortals_Receiver/.venv/bin/python /home/pi/Desktop/Immortals_Receiver/main.py
+Restart=on-failure
+RestartSec=5
+TimeoutStopSec=15
+Environment=PYTHONUNBUFFERED=1
+NoNewPrivileges=true
+
+[Install]
+WantedBy=multi-user.target

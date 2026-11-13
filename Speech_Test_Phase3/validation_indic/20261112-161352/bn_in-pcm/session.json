@@ -1,0 +1,10 @@
+{
+  "patient_id": null,
+  "session": "/home/pi/Desktop/Immortals_Speech_Test_Phase3/validation_indic/20261112-161352/bn_in-pcm",
+  "test_only": true,
+  "speakers": 0,
+  "threshold": 0.5,
+  "language": "auto",
+  "script": "roman",
+  "threads": 2
+}

@@ -1,0 +1,42 @@
+{
+  "patient_id": null,
+  "session": "/home/pi/Desktop/Immortals_Speech_Test_Phase3/validation_indic/20261112-161352/silence",
+  "test_only": true,
+  "speakers": 0,
+  "threshold": 0.5,
+  "language": "auto",
+  "script": "roman",
+  "threads": 2,
+  "status": "no_speech",
+  "audio": {
+    "seconds": 5.0,
+    "samples": 80000,
+    "sample_rate": 16000
+  },
+  "language_detected": null,
+  "speech_intervals_ms": [],
+  "speaker_count": 0,
+  "speaker_turns": [],
+  "segments": [],
+  "timings": {
+    "vad_seconds": 0.047,
+    "processing_seconds": 0.047,
+    "real_time_factor": 0.009
+  },
+  "models": {
+    "asr": "AI4Bharat IndicConformer 600M INT8 CTC",
+    "export": "akki244/indic-conformer-onnx-int8",
+    "revision": "988451d62a11a7bc514630d75559d5f672c88690",
+    "onnxruntime": "1.23.2",
+    "sherpa_onnx": "2.0.1",
+    "segmentation": "pyannote segmentation 3.0",
+    "embedding": "3dspeaker CAMPPlus English VoxCeleb 16k",
+    "vad": "Silero VAD"
+  },
+  "limitations": [
+    "Speaker IDs apply only within this live session or recording; they are not names or roles.",
+    "Auto language is a Hindi/Bengali heuristic; English and other languages are unsupported.",
+    "Automatic speaker count and timestamps are estimates.",
+    "A single microphone cannot reliably separate simultaneous speech; some overlap may be missed."
+  ]
+}

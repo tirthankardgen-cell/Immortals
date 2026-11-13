@@ -1,0 +1,15 @@
+[Unit]
+Description=Immortals v2 patient Zigbee and Firebase gateway
+After=network.target
+[Service]
+Type=simple
+User=pi
+WorkingDirectory=/home/pi/Desktop/Immortals_Receiver_v2
+ExecStart=/home/pi/Desktop/Immortals_Receiver_v2/.venv/bin/python /home/pi/Desktop/Immortals_Receiver_v2/main.py
+Restart=on-failure
+RestartSec=5
+TimeoutStopSec=30
+Environment=PYTHONUNBUFFERED=1
+NoNewPrivileges=true
+[Install]
+WantedBy=multi-user.target

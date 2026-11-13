@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=Immortals Offline Speech Test
+Comment=Offline Hindi + Hinglish and Bengali + Binglish for the same speech with speaker labels
+Exec=/home/pi/Desktop/Immortals_Speech_Test_Phase3/launch_terminal.sh
+Path=/home/pi/Desktop/Immortals_Speech_Test_Phase3
+Icon=audio-input-microphone
+Terminal=true
+Categories=AudioVideo;

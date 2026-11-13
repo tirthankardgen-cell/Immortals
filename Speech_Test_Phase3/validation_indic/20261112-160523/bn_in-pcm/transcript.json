@@ -1,0 +1,88 @@
+{
+  "patient_id": null,
+  "session": "/home/pi/Desktop/Immortals_Speech_Test_Phase3/validation_indic/20261112-160523/bn_in-pcm",
+  "test_only": true,
+  "speakers": 0,
+  "threshold": 0.5,
+  "language": "auto",
+  "script": "roman",
+  "threads": 2,
+  "status": "complete",
+  "audio": {
+    "seconds": 7.62,
+    "samples": 121920,
+    "sample_rate": 16000
+  },
+  "language_detected": "bn",
+  "speech_intervals_ms": [
+    [
+      1222,
+      2612
+    ],
+    [
+      2982,
+      4692
+    ],
+    [
+      5030,
+      6740
+    ]
+  ],
+  "speaker_count": 1,
+  "speaker_turns": [
+    {
+      "start_ms": 1178,
+      "end_ms": 6713,
+      "speaker_id": "Speaker 1"
+    }
+  ],
+  "segments": [
+    {
+      "start_ms": 960,
+      "end_ms": 2480,
+      "speaker_id": "Speaker 1",
+      "text": "রাজ্যগুলোর মধ্যে",
+      "quality": "estimated",
+      "display_text": "raajyagulor madhye"
+    },
+    {
+      "start_ms": 3360,
+      "end_ms": 4160,
+      "speaker_id": "Speaker 1",
+      "text": "এবং শুল্ক",
+      "quality": "estimated",
+      "display_text": "ebang shulka"
+    },
+    {
+      "start_ms": 4720,
+      "end_ms": 6720,
+      "speaker_id": "Speaker 1",
+      "text": "অগ্রাহ্য করার কর্তৃত্ব",
+      "quality": "estimated",
+      "display_text": "agraahya karaar kartrtba"
+    }
+  ],
+  "timings": {
+    "vad_seconds": 0.067,
+    "diarization_seconds": 0.707,
+    "asr_seconds": 0.963,
+    "processing_seconds": 1.751,
+    "real_time_factor": 0.23
+  },
+  "models": {
+    "asr": "AI4Bharat IndicConformer 600M INT8 CTC",
+    "export": "akki244/indic-conformer-onnx-int8",
+    "revision": "988451d62a11a7bc514630d75559d5f672c88690",
+    "onnxruntime": "1.23.2",
+    "sherpa_onnx": "2.0.1",
+    "segmentation": "pyannote segmentation 3.0",
+    "embedding": "3dspeaker CAMPPlus English VoxCeleb 16k",
+    "vad": "Silero VAD"
+  },
+  "limitations": [
+    "Speaker IDs apply only within this live session or recording; they are not names or roles.",
+    "Auto language is a Hindi/Bengali heuristic; English and other languages are unsupported.",
+    "Automatic speaker count and timestamps are estimates.",
+    "A single microphone cannot reliably separate simultaneous speech; some overlap may be missed."
+  ]
+}

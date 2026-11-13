@@ -1,0 +1,15 @@
+{
+  "dashboard.html": "b8625f84c24ed525c7751c55a3088e876f65a581e20319496d0ff0e62a231b79",
+  "immortals-receiver-v2.service": "6de68553ec056f768f2c5b1a4a18df3ad3464ecc5477d9cc238542cd9fe8c6b1",
+  "main.py": "6176f2b8ffdc16741e89888a14d77274c701942757d87b89d28f5dfa7f559af5",
+  "patient_common.py": "61520c61093748a17f926dc1a02d0709beb5f8b05050919d83680a31be381fe7",
+  "patient_gateway.py": "b4375de3272c8c85100075b3e74b554a18228a959ec5bbce0977a7968caeb6be",
+  "project.md": "e58dfadbd9c6fcb5d27c5decb4e9d91280d840c9dd7fa1b6413df29d2389d8a8",
+  "README.md": "e58dfadbd9c6fcb5d27c5decb4e9d91280d840c9dd7fa1b6413df29d2389d8a8",
+  "receiver.py": "bc42dce561af5c0a1aad02ff7fbfef53fa049b8c534e6c97b043101f303fec52",
+  "receiver_config.json": "0c09783f19ab10a69749c5098b99172e47a83b6b474d8ade43901849ed778688",
+  "requirements.txt": "5498d5e4a374c74fbdcb420d9d04f395fa15fde5274c2023faa00faa8166f807",
+  "sync.py": "7b2a2a91c5945c4b8191ab7c719e263de383daed6f9a9fb29bb96594dae4a6da",
+  "VALIDATION.md": "22dc93c933f585377c45fa07c39aa2f6516612aa7696f67cdff8cf2b64aa5a90",
+  "ZIGBEE_PROTOCOL.md": "1ab4314a4705cf46f2f0eac4c614722c1546070e0c826bfbcb79769c079bd255"
+}

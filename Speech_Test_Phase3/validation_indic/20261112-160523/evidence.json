@@ -1,0 +1,85 @@
+{
+  "output": "/home/pi/Desktop/Immortals_Speech_Test_Phase3/validation_indic/20261112-160523",
+  "references": [
+    {
+      "name": "hi_in-pcm",
+      "language": "hi",
+      "speaker_count": 1,
+      "status": "complete",
+      "text": "आम तौ पर सेटेलाइट फोन का मोबाइल फोन के स्थान पर उपयोग नहीं किया जा सकता है क्योंकि सेटेलाइट फोन से कॉल करने के लिए आपको उपग्रह की रेखा पर घर के बाहर रहना पड़ेगा",
+      "timings": {
+        "vad_seconds": 0.207,
+        "diarization_seconds": 5.486,
+        "asr_seconds": 3.278,
+        "processing_seconds": 8.986,
+        "real_time_factor": 0.396
+      }
+    },
+    {
+      "name": "bn_in-pcm",
+      "language": "bn",
+      "speaker_count": 1,
+      "status": "complete",
+      "text": "রাজ্যগুলোর মধ্যে এবং শুল্ক অগ্রাহ্য করার কর্তৃত্ব",
+      "timings": {
+        "vad_seconds": 0.067,
+        "diarization_seconds": 0.707,
+        "asr_seconds": 0.963,
+        "processing_seconds": 1.751,
+        "real_time_factor": 0.23
+      }
+    },
+    {
+      "name": "silence",
+      "language": null,
+      "speaker_count": 0,
+      "status": "no_speech",
+      "text": "",
+      "timings": {
+        "vad_seconds": 0.045,
+        "processing_seconds": 0.045,
+        "real_time_factor": 0.009
+      }
+    }
+  ],
+  "diarization": [
+    {
+      "name": "1-two-speakers-en",
+      "count": 2,
+      "seconds": 2.346,
+      "returning_voice_labels": "passed"
+    },
+    {
+      "name": "0-four-speakers-zh",
+      "count": 4,
+      "seconds": 11.236
+    }
+  ],
+  "network": "[Errno 101] Network is unreachable",
+  "microphone": {
+    "exit_code": 130,
+    "ctrl_c_seconds": 0.164,
+    "model_ready": {
+      "pid": 20166,
+      "backend": "IndicConformer",
+      "load_seconds": 2.801
+    },
+    "report": {
+      "started_at": "2026-11-12T10:35:56.496713+00:00",
+      "device": "plughw:CARD=UACDemoV10,DEV=0",
+      "status": "stopped",
+      "mode": "streaming_vad",
+      "language": "auto",
+      "pause_seconds": 0.6,
+      "max_utterance_seconds": 15,
+      "chunks_captured": 0,
+      "chunks_processed": 0,
+      "chunks_deferred": 0,
+      "samples": 157600,
+      "test_only": true,
+      "speaker_matching": "session-only cosine threshold 0.6, margin 0.08",
+      "ended_at": "2026-11-12T10:36:06.402372+00:00",
+      "errors": []
+    }
+  }
+}

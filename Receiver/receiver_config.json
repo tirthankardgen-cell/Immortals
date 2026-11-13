@@ -1,0 +1,10 @@
+{
+  "port": "/dev/serial/by-id/usb-Silicon_Labs_CP2102_USB_to_UART_Bridge_Controller_0001-if00-port0",
+  "baud_rate": 115200,
+  "receiver_address": "0013A200408DF0CE",
+  "sender_address": "0013A200408DF0F0",
+  "bind_host": "0.0.0.0",
+  "http_port": 8080,
+  "stale_after_seconds": 3,
+  "assembly_timeout_seconds": 2
+}

@@ -1,0 +1,8 @@
+{
+  "started_at": "2026-11-12T10:44:40.061079+00:00",
+  "device": "plughw:CARD=UACDemoV10,DEV=0",
+  "source_file": null,
+  "capture_status": "complete",
+  "patient_id": null,
+  "capture_ended_at": "2026-11-12T10:44:45.089130+00:00"
+}

@@ -1,0 +1,121 @@
+{
+  "patient_id": null,
+  "session": "/home/pi/Desktop/Immortals_Speech_Test_Phase3/validation_indic/20261112-160523/hi_in-pcm",
+  "test_only": true,
+  "speakers": 0,
+  "threshold": 0.5,
+  "language": "auto",
+  "script": "roman",
+  "threads": 2,
+  "status": "complete",
+  "audio": {
+    "seconds": 22.68,
+    "samples": 362880,
+    "sample_rate": 16000
+  },
+  "language_detected": "hi",
+  "speech_intervals_ms": [
+    [
+      2662,
+      6164
+    ],
+    [
+      6662,
+      7508
+    ],
+    [
+      7814,
+      11380
+    ],
+    [
+      11814,
+      13428
+    ],
+    [
+      13702,
+      17044
+    ],
+    [
+      17318,
+      21780
+    ]
+  ],
+  "speaker_count": 1,
+  "speaker_turns": [
+    {
+      "start_ms": 2647,
+      "end_ms": 6072,
+      "speaker_id": "Speaker 1"
+    },
+    {
+      "start_ms": 6629,
+      "end_ms": 21682,
+      "speaker_id": "Speaker 1"
+    }
+  ],
+  "segments": [
+    {
+      "start_ms": 2480,
+      "end_ms": 3680,
+      "speaker_id": "Speaker 1",
+      "text": "आम तौ पर",
+      "quality": "estimated",
+      "display_text": "aam tau par"
+    },
+    {
+      "start_ms": 4080,
+      "end_ms": 5920,
+      "speaker_id": "Speaker 1",
+      "text": "सेटेलाइट फोन का",
+      "quality": "estimated",
+      "display_text": "settelaaitt phon kaa"
+    },
+    {
+      "start_ms": 6560,
+      "end_ms": 11200,
+      "speaker_id": "Speaker 1",
+      "text": "मोबाइल फोन के स्थान पर उपयोग नहीं किया जा सकता है",
+      "quality": "estimated",
+      "display_text": "mobaail phon ke sthaan par upayog nahiim kiyaa jaa sakataa hai"
+    },
+    {
+      "start_ms": 11600,
+      "end_ms": 15280,
+      "speaker_id": "Speaker 1",
+      "text": "क्योंकि सेटेलाइट फोन से कॉल करने",
+      "quality": "estimated",
+      "display_text": "kyomki settelaaitt phon se kol karane"
+    },
+    {
+      "start_ms": 15680,
+      "end_ms": 21760,
+      "speaker_id": "Speaker 1",
+      "text": "के लिए आपको उपग्रह की रेखा पर घर के बाहर रहना पड़ेगा",
+      "quality": "estimated",
+      "display_text": "ke lie aapako upagrah kii rekhaa par ghar ke baahar rahanaa paddegaa"
+    }
+  ],
+  "timings": {
+    "vad_seconds": 0.207,
+    "diarization_seconds": 5.486,
+    "asr_seconds": 3.278,
+    "processing_seconds": 8.986,
+    "real_time_factor": 0.396
+  },
+  "models": {
+    "asr": "AI4Bharat IndicConformer 600M INT8 CTC",
+    "export": "akki244/indic-conformer-onnx-int8",
+    "revision": "988451d62a11a7bc514630d75559d5f672c88690",
+    "onnxruntime": "1.23.2",
+    "sherpa_onnx": "2.0.1",
+    "segmentation": "pyannote segmentation 3.0",
+    "embedding": "3dspeaker CAMPPlus English VoxCeleb 16k",
+    "vad": "Silero VAD"
+  },
+  "limitations": [
+    "Speaker IDs apply only within this live session or recording; they are not names or roles.",
+    "Auto language is a Hindi/Bengali heuristic; English and other languages are unsupported.",
+    "Automatic speaker count and timestamps are estimates.",
+    "A single microphone cannot reliably separate simultaneous speech; some overlap may be missed."
+  ]
+}

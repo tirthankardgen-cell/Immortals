@@ -1,0 +1,44 @@
+# Private laptop operations, historical material, and captured evidence.
+.work/
+archive/
+artifacts/
+output/
+.playwright-cli/
+
+# Platform-specific dependencies, build products, and local tool state.
+**/node_modules/
+**/.next/
+**/.tools/
+**/.vercel/
+**/.firebase/
+**/.deployment-backups/
+**/.playwright-cli/
+**/output/
+**/__pycache__/
+**/.venv/
+**/venv/
+*.py[cod]
+*.tsbuildinfo
+*.log
+**/next-env.d.ts
+
+# Local configuration, secrets, and runtime patient data.
+.env
+.env.*
+**/.env
+**/.env.*
+!**/.env.example
+**/*service-account*.json
+**/gateway-service-account.json
+**/firebase-adminsdk*.json
+**/settings.json
+**/latest_readings.json
+**/last_packet.json
+*.sqlite3
+*.sqlite3-*
+*.db
+*.db-*
+*.lock
+**/logs/
+**/results/
+**/models/

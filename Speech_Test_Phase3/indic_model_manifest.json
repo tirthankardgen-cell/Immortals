@@ -1,0 +1,32 @@
+{
+  "backend": "AI4Bharat IndicConformer 600M INT8 CTC",
+  "repo": "akki244/indic-conformer-onnx-int8",
+  "revision": "988451d62a11a7bc514630d75559d5f672c88690",
+  "upstream": "ai4bharat/indic-conformer-600m-multilingual",
+  "files": {
+    "ctc_decoder_int8.onnx": {
+      "bytes": 5792962,
+      "sha256": "ab956e59af5797ca2a1435cdf077e86d2b28406b087c4737ef57397ee1215408"
+    },
+    "encoder_int8.onnx": {
+      "bytes": 652623260,
+      "sha256": "3774237363aeeaa787cbc6ca365fb518d1497b711520a4a0ea42ef1f765ca9d8"
+    },
+    "hanning_window.json": {
+      "bytes": 8087,
+      "sha256": "1feb80a8f0196c78af4513f5fe7ca7bf9b0a9764e53d078c6a7af960d8efda5b"
+    },
+    "language_indices.json": {
+      "bytes": 32996,
+      "sha256": "4216c65ed7ab5acd3fe95b01f899637085e419997b0e75816a6caa58c113d856"
+    },
+    "mel_filters.json": {
+      "bytes": 110971,
+      "sha256": "a48de194763e82cd45915888d9b56c2f6f9f9fc219a7983847c00a21440e0c93"
+    },
+    "vocab.json": {
+      "bytes": 96743,
+      "sha256": "eda380b3ba4507cb0850b6d0666298babe07eaf3f299b2d08f91db4b491a59bf"
+    }
+  }
+}
