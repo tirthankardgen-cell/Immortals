@@ -1,0 +1,123 @@
+{
+  "schema_version": 1,
+  "timestamp": "2026-11-17T21:11:51+05:30",
+  "timezone": "Asia/Calcutta",
+  "moves": [
+    {
+      "source": "IMMORTALS_MASTER_PROJECT_DOCUMENT_v2.md",
+      "target": "docs/planning/IMMORTALS_MASTER_PROJECT_DOCUMENT_v2.md",
+      "original_sha256": "10d1c3eb8a106fd4bbb7ca5a003fc37dd442a452e51e136303e41c2e18c447f5",
+      "reason": "Single current master plan in the documentation hub."
+    },
+    {
+      "source": "purchase bom.xlsx",
+      "target": "docs/hardware/bom/Immortals_Purchase_BOM.xlsx",
+      "original_sha256": "0028654161f6a13e4ed7163ad99ca8b41213d5922be604e8b3d52891dcae9289",
+      "reason": "Latest edited purchase list, modified 17 November; preserve workbook bytes."
+    },
+    {
+      "source": "Immortals_Updated_Purchase_BOM_Print.pdf",
+      "target": "docs/hardware/bom/Immortals_Purchase_BOM_Print.pdf",
+      "original_sha256": "36cbf41822e2bab860f2c9430b90834c608e5594337747562f909cd96db0704c",
+      "reason": "Supplied purchase-list print document; preserve original bytes."
+    },
+    {
+      "source": "outputs/01a1e50d-f2c1-74e0-941b-f955ccd31f1b/Immortals_Purchase_Only_BOM_Dec15.xlsx",
+      "target": "docs/hardware/bom/history/Immortals_Purchase_Only_BOM_Dec15_2026-11-16.xlsx",
+      "original_sha256": "c64a7517a46bc1298d5ff7e438e23ce6900796721ce1fd0f786a00b8329a1c78",
+      "reason": "Superseded costing retained for its original dated verification and differences."
+    },
+    {
+      "source": "outputs/01a1e50d-f2c1-74e0-941b-f955ccd31f1b/Immortals_Prototype_BOM_2026-11-16.xlsx",
+      "target": "docs/hardware/bom/history/Immortals_Prototype_BOM_2026-11-16.xlsx",
+      "original_sha256": "2385363f3120087ac67b2572e3ccd9d34ccc3beb2abc57017db709fc1be0c196",
+      "reason": "Distinct four-sheet research and battery calculations retained as history."
+    },
+    {
+      "source": "outputs/01a1e50d-f2c1-74e0-941b-f955ccd31f1b/Immortals_Purchase_Only_BOM_Dec15.xlsx.inspect.ndjson",
+      "target": "artifacts/validation/bom/2026-11-16/Immortals_Purchase_Only_BOM_Dec15.xlsx.inspect.ndjson",
+      "original_sha256": "0a0794df50d7718e1315d4d46489029e3ae56b15a304ce13d7cbdcd13b3c3e73",
+      "reason": "Generated workbook inspection is captured evidence; retain original bytes/date outside source control."
+    }
+  ],
+  "removed_navigation_files": [
+    {
+      "path": "GOAL_REQUIREMENTS.md",
+      "sha256": "ed120646a663f2a86c45c059ad648ea9d76e8d7cf7d41c6d6a57bf413ce99157",
+      "retained_content": "docs/planning/GOAL_REQUIREMENTS.md",
+      "reason": "Redundant navigation-only file. Source document is retained in the central hub."
+    },
+    {
+      "path": "PROJECT_UPGRADE_PLAN.md",
+      "sha256": "69a1330ee2bdaaebe9820900eb9329df1a78e764caa7948236c36f482ecbe55e",
+      "retained_content": "docs/planning/PROJECT_UPGRADE_PLAN.md",
+      "reason": "Redundant navigation-only file. Source document is retained in the central hub."
+    }
+  ],
+  "preserved_duplicate_groups": [
+    [
+      "Receiver/project.md",
+      "Receiver/versions/01_live_zigbee/project.md"
+    ],
+    [
+      "Receiver/UPGRADE_NOTES.md",
+      "Receiver/versions/01_live_zigbee/UPGRADE_NOTES.md",
+      "Sender/UPGRADE_NOTES.md",
+      "Sender/versions/02_latest_zigbee/UPGRADE_NOTES.md"
+    ],
+    [
+      "Receiver/ZIGBEE_PROTOCOL.md",
+      "Receiver/versions/01_live_zigbee/ZIGBEE_PROTOCOL.md",
+      "Sender/ZIGBEE_PROTOCOL.md",
+      "Sender/versions/02_latest_zigbee/ZIGBEE_PROTOCOL.md",
+      "Sender/versions/03_next_upgrade/ZIGBEE_PROTOCOL.md"
+    ],
+    [
+      "Receiver_v2/ZIGBEE_PROTOCOL.md",
+      "Sender_v2/ZIGBEE_PROTOCOL.md"
+    ],
+    [
+      "Sender/project.md",
+      "Sender/versions/02_latest_zigbee/project.md"
+    ],
+    [
+      "Sender/UI_UPDATE_NOTES.md",
+      "Sender/versions/02_latest_zigbee/UI_UPDATE_NOTES.md"
+    ]
+  ],
+  "removed_duplicates": [
+    {
+      "path": "Sender_v2/project.md",
+      "canonical": "Sender_v2/README.md",
+      "sha256": "296d8b9899fee66fa9c0ac2305256233abf119d304fc8f0ebfb77b55309f6b18",
+      "reason": "Identical same-directory manual. README.md remains the single current operational guide. Old deployment source manifests remain unchanged dated snapshots."
+    },
+    {
+      "path": "Receiver_v2/project.md",
+      "canonical": "Receiver_v2/README.md",
+      "sha256": "e58dfadbd9c6fcb5d27c5decb4e9d91280d840c9dd7fa1b6413df29d2389d8a8",
+      "reason": "Identical same-directory manual. README.md remains the single current operational guide. Old deployment source manifests remain unchanged dated snapshots."
+    }
+  ],
+  "completion_timestamp": "2026-11-17T21:35:27.109269+05:30",
+  "document_navigation_edits": [
+    {
+      "target": "docs/planning/IMMORTALS_MASTER_PROJECT_DOCUMENT_v2.md",
+      "backup": ".work/backups/document-organization/2026-11-17/originals/IMMORTALS_MASTER_PROJECT_DOCUMENT_v2.md",
+      "original_sha256": "10d1c3eb8a106fd4bbb7ca5a003fc37dd442a452e51e136303e41c2e18c447f5",
+      "reason": "Repair moved-document links; retain original requirements and dated results."
+    },
+    {
+      "target": "artifacts/validation/BOM_RESEARCH_2026-11-16.md",
+      "backup": ".work/backups/document-organization/2026-11-17/originals/artifacts/validation/BOM_RESEARCH_2026-11-16.md",
+      "original_sha256": "2e7997616cacd5a43dfc85c7d117b8e792f0e1b004debc1334e4d9cf7ffc424c",
+      "reason": "Repair moved-document links; retain original requirements and dated results."
+    },
+    {
+      "target": "artifacts/validation/PURCHASE_BOM_2026-11-16.md",
+      "backup": ".work/backups/document-organization/2026-11-17/originals/artifacts/validation/PURCHASE_BOM_2026-11-16.md",
+      "original_sha256": "0047819232b25eac14d96d194d1a96c45c90dab3fbd0fa050fc6144536327a4d",
+      "reason": "Repair moved-document links; retain original requirements and dated results."
+    }
+  ]
+}

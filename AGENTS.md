@@ -2,7 +2,7 @@
 
 ## Main project plan
 
-Read [IMMORTALS_MASTER_PROJECT_DOCUMENT_v2.md](IMMORTALS_MASTER_PROJECT_DOCUMENT_v2.md)
+Read [IMMORTALS_MASTER_PROJECT_DOCUMENT_v2.md](docs/planning/IMMORTALS_MASTER_PROJECT_DOCUMENT_v2.md)
 before planning or changing project work. The user designated this document as
 the main plan for the whole project on 13 November 2026.
 
@@ -39,11 +39,28 @@ source and deployment locations. Keep `Website/.git` and its standalone
 deployment root intact. Component launchers, tests, configs, and sync scripts
 stay with their component.
 
-Place supporting project documents in `docs`, reusable project tools in
+Place shared project documents, the master plan and BOMs in `docs`, reusable project tools in
 `tools/project`, captured evidence in `artifacts`, and historical work in
 `archive`. `.work/PI_ACCESS.md`, `.work/backups`, and `.work/cache` are private
 laptop material. Preserve historical evidence and original sources when
 reorganizing. Store a move record for any later structural change.
+
+## Mandatory development log
+
+Read [development.md](docs/development/development.md) before starting work.
+Every agent and contributor must append a dated entry for every repository change
+before committing or handing work back. This includes code, documents, BOMs,
+configuration, tests, file moves, deletions and deployment/synchronization work.
+
+Each entry must include date, time and timezone (Asia/Calcutta, UTC+05:30), author,
+changed paths, what changed, why the change was needed, why that decision was
+chosen, validation commands/targets/results/evidence, known gaps, and a rollback
+or recovery reference. Record failed checks and their resolution. Use actual
+timestamps and results; never invent past development history or Pi validation.
+Append corrections and follow-ups instead of rewriting prior entries. Add the
+log in the same commit as the change. Never include credentials or patient data.
+For work in the standalone website checkout, follow its own AGENTS.md log rule;
+record cross-repository work in this central log as well.
 
 ## Verification and status
 

@@ -1,6 +1,6 @@
 # Immortals — Two-Phase Project Upgrade Plan
 
-> Supporting implementation notes. The [master project plan](../../IMMORTALS_MASTER_PROJECT_DOCUMENT_v2.md)
+> Supporting implementation notes. The [master project plan](IMMORTALS_MASTER_PROJECT_DOCUMENT_v2.md)
 > is the main plan for the whole project. This dated document preserves the
 > two-phase implementation history; use the [status index](IMPLEMENTATION_STATUS.md)
 > to map it to the expanded master scope.

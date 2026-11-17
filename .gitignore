@@ -1,8 +1,15 @@
 # Private laptop operations, historical material, and captured evidence.
 .work/
-archive/
-artifacts/
+archive/*
+!archive/README.md
+artifacts/*
+!artifacts/README.md
+!artifacts/validation/
+artifacts/validation/*
+!artifacts/validation/BOM_RESEARCH_2026-11-16.md
+!artifacts/validation/PURCHASE_BOM_2026-11-16.md
 output/
+outputs/
 .playwright-cli/
 
 # Platform-specific dependencies, build products, and local tool state.

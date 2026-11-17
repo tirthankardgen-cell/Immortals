@@ -8,6 +8,10 @@
 
 > **Status note:** This document combines the project owner's description with the supplied `GOAL_REQUIREMENTS.md`, `PROJECT_UPGRADE_PLAN.md`, and Raspberry Pi 5 sensor wiring guide. It distinguishes implemented/reported baseline from proposed or not-yet-verified features. It is a project specification, not evidence that every sensor is medically validated or every end-to-end acceptance test has passed.
 
+> **Superseding owner update — 16 November 2026:** The physical prototype is a toolbox/suitcase with a lid-mounted solar panel, a detachable Pi Zero 2 W touchscreen control unit, and a detachable ESP32 Bluetooth weight/height station stored below the case. The Pi 5 remains inside the suitcase and owns main processing and local model inference. Section 3.4 and the updated Section 4.1 govern this arrangement. Earlier descriptions of a single fixed touchscreen or a separately purchased Bluetooth scale are historical alternatives. This update specifies the intended prototype, not completed hardware integration or field acceptance.
+
+> **15 December milestone clarification — owner update, 16 November 2026:** The required deliverable is a working hardware/software proof of concept by **15 December 2026**. Assemble the electronics on green double-sided prototyping/VeroBoard and use a cardboard/rough mock-up to show the eventual suitcase arrangement if useful. A fabricated enclosure, finished case and field-ready product are not required for this milestone. Section 3.5 governs the demonstration and low-cost purchase list. Final product requirements remain the later target.
+
 ## 0. Executive status snapshot — 12 November 2026
 
 This section records the current implementation status as described by the project owner and the supplied project files. “Reported working” means the project has been described as implemented; it does not imply that every clinical, hardware, recovery, or field acceptance test has passed.
@@ -100,7 +104,7 @@ The device is an aid for collecting and presenting measurements. It must not be 
 
 ```mermaid
 flowchart LR
-    Operator[Trained health worker] --> UI[7-inch touchscreen sender UI]
+    Operator[Trained health worker] --> UI[Sender patient UI; detachable touchscreen target]
     UI --> Patient[Patient selection / registration]
     Patient --> Sensors[Sensor acquisition and quality checks]
     Sensors --> Local[Local fixed record + persistent outbox]
@@ -124,6 +128,8 @@ flowchart LR
 | Website/dashboard | Patient directory, patient details, measurements, graphs/waveforms, history, status, future transcript view | Internet connection required for current cloud-backed data |
 | Optional Phase 2 speech pipeline | Capture external microphone audio, perform offline transcription and speaker diarization, queue transcript events | Local inference on sender; no cloud speech API required |
 
+The sender's physical UI allocation is superseded by the 16 November 2026 module design in Section 3.4. The sender Pi 5 retains patient/session authority, local persistence, radio scheduling and inference. The receiver gateway remains a separate role.
+
 ### 3.3 Connectivity and synchronization behavior
 
 - **Sender offline, gateway reachable by Zigbee:** record is sent to the gateway without internet at the sender.
@@ -134,17 +140,61 @@ flowchart LR
 - **Stale-data handling:** original capture time is authoritative. Upload time must never make an old record appear live or allow delayed data to overwrite a newer latest reading.
 - **Transport vs application success:** radio delivery alone is not proof that the gateway accepted a complete record. Use versioned messages, validation, and application acknowledgements.
 
+### 3.4 Suitcase and detachable modules — owner update, 16 November 2026
+
+The owner has specified a toolbox/suitcase enclosure with two closing clips, fitted storage slots and a detachable lower module. The solar panel mounts on the inside of the lid and must face daylight when deployed. The main case contains the Pi 5, main battery and power distribution, charging inlet/external AC inlet arrangement, GPS, Zigbee and remaining directly connected sensors. Provide dedicated storage and strain relief for the BP cuff, tubing/pipe connector and retractable sensor leads.
+
+| Physical module | Hardware and responsibility | Local connection |
+|---|---|---|
+| Main suitcase | Existing Raspberry Pi 5. Owns the patient/session records, sensor aggregation, offline speech/VLM/LLM processing and persistent sender outboxes. GPS, Zigbee and other retained wired sensors connect here. Main battery and charging/power distribution remain in the case. | Hosts the local link to the control unit and the scale. Zigbee still links to the separate receiver gateway. |
+| Detachable control unit | Raspberry Pi Zero 2 W accessory, its own flat 3000 mAh battery, touchscreen, autofocus camera, two INMP441 microphones, selected infrared temperature sensor and red aiming laser. Captures images/audio/temperature, displays the patient app and accepts notes/operator input. Does not host the main AI models. | Bluetooth carries lightweight readings, notes, control and status. Local Wi-Fi carries images and microphone audio to Pi 5 and large responses. Both links may be used as needed. Reconnect without changing the captured patient's identity. |
+| Detachable weight/height station | Four load cells with an appropriate bridge/ADC, ESP32, its own battery, Bluetooth weight delivery and a telescopic height-measuring stand with the selected ToF LiDAR and a repeatable fixture. Stored in the detachable lower section, then placed on the ground for measurement. | ESP32 transmits weight, height, quality/status and capture timestamps to the Pi 5 over Bluetooth or BLE. The control display shows the result. |
+
+The requested **weight scale** and **Bluetooth-enabled weight scale** are one integrated station, not two separate scales. The owner specifies **eight hours** between charges for this station and **two magnetic pogo-pin connector sets** for detachable charging docks. Purchase quantities must distinguish a complete mating set from a single connector half. Dock connectors must be keyed for polarity and rated for the actual charging current. Do not assume the pogo pins carry HDMI, camera CSI or the main Pi 5 power rail.
+
+Keep touchscreen interaction, acquisition, audio/image transfer, inference and Zigbee transport independent and bounded. A slow local Wi-Fi link or inference job must not stop the main sender's acquisition or the ESP32 measurement loop. The Pi Zero retains unsent captures/notes with patient ID, session ID, event identity, original capture times and quality/gap information. Reconnection uses idempotent requests and acknowledgements. The Pi 5 owns patient registration and reconciles detached/offline drafts before they are finalized. Direct sender or Pi Zero Firebase access remains prohibited. Define authenticated local pairing and patient/session transfer before field use.
+
+The existing sender touchscreen implementation and current deployment paths remain preserved. Extending its app to a detachable client, creating ESP32 firmware, audio/image transport and reconnect behavior are **Not started / planned** against this new target until dated implementation evidence establishes otherwise. Housing, docking, telescopic geometry, battery runtime and combined physical acceptance are **In progress** at specification/BOM research level. No Pi, cloud, clinical, ingress or field acceptance is established by this document update.
+
+Power planning must separate three battery domains. The owner already has the Pi 5, Zigbee module, nominal 12 V solar panel, main drone battery and Waveshare 7-inch touchscreen. Reuse these and exclude them from new-purchase totals. The touchscreen belongs in the detachable Pi Zero 2 W control unit. Confirm its exact HDMI/USB-touch connections and current draw during integration. Add one green double-sided prototyping/VeroBoard to the purchase list. “Two-layer” describes copper on both sides, not two boards.
+
+The owner cannot confirm the main battery label yet and authorizes a generalized BOM now. The orange drone pack is described as roughly 14 V, either 3S or 4S, and possibly 1500, 5000 or 5200 mAh. These are unconfirmed alternatives, not measured specifications. A conventional **3S lithium-ion/polymer pack is 11.1 V nominal and 12.6 V fully charged**. Conventional **4S is 14.8 V nominal and 16.8 V full**. List mutually exclusive 3S/4S protection choices and a configurable balance-charger candidate. Final chemistry, charge voltage/current, connector and BMS selection must wait for the label. A BMS provides protection/balancing and does not replace a lithium CC/CV charger. The nominal 12 V panel's watts, Vmp and Voc are unknown. A buck-only solar controller requires enough panel voltage above the selected charge voltage, particularly for 4S. Do not use a single-cell CN3791 charger for this pack. Any necessary solar boost/input conditioning remains a separately identified design gap.
+
+The ECG front end needs a quiet supply and an electrically safe patient-connected design. A separate battery or isolated DC/DC converter alone is insufficient if ADC, I²C, ground, USB, charging or other wiring reconnects it to the main system. Specify the complete isolated power and signal barrier or a fully isolated battery-powered wireless front end before human-connected validation. Retain the Section 9 safety requirements.
+
+See [dated prototype architecture and BOM research notes](../hardware/PROTOTYPE_ARCHITECTURE_2026-11-16.md) for allocations, assumptions and unresolved purchase decisions.
+
+The [provisional Excel BOM dated 16 November 2026](../hardware/bom/history/Immortals_Prototype_BOM_2026-11-16.xlsx) includes Indian supplier links, prices/GST/stock observations, owned-item exclusions, separate main-battery alternatives and editable runtime calculations. The eight-hour scale baseline recommends a protected 1S 5000 mAh assembly. The requested 3000 mAh tablet battery has approximately 1.24 hours estimated runtime with the reused seven-inch display. Main battery/panel labels and measured loads must be confirmed before finalizing power hardware. Local workbook research/validation is **Done and verified** with [dated evidence](../../artifacts/validation/BOM_RESEARCH_2026-11-16.md); hardware integration remains **Not started / planned**.
+
+### 3.5 Low-cost proof of concept due 15 December 2026
+
+The milestone must demonstrate that the proposed electronics and software work together. It is not satisfied by a case mock-up or disconnected sensor displays alone. Preserve the Pi 5 main processor, Pi Zero 2 W capture/UI accessory and ESP32 weight/height roles from Section 3.4. Demonstrate touchscreen operation, sensor capture, Bluetooth lightweight/weight/height messages, Wi-Fi image/audio delivery and Pi 5 processing with the original patient/session/capture identity intact. Integration remains **Not started / planned** until implemented and tested on the target devices. Keep the earlier deployment evidence separate.
+
+Use inexpensive, common modules first and seek parts in Kolkata's Chandni Market or Robu.in. Local stock and quotations must be checked with sellers; online listings do not establish Chandni availability. The fresh BOM contains purchase-only electronics, with harder-to-source items in a separate section. Exclude the owned Pi 5, Zigbee, solar panel, main battery and touchscreen. Do not add fabricated case/enclosure parts, duplicate replacements or a separately purchased Bluetooth scale.
+
+Budget candidates include a basic GY-906 MLX90614 instead of the expensive narrow-FOV DCI grade, a VL53L0X short-range ToF module instead of TF-Luna, NEO-6M GPS instead of NEO-M8N and common LM2596 ancillary bucks. These are procurement candidates, not tested substitutions. Use a fixed height reference with a short head-to-sensor distance within the ToF module's usable range. Retain infrared **surface-temperature** labeling, no-fix GPS behavior and measurement quality/calibration requirements. Keep a suitably rated main Pi 5 supply; a cheap small buck is not evidence of adequate Pi 5 power.
+
+**Camera and costing clarification — owner update, 16 November 2026:** Keep both a basic fixed-focus OV5647 5MP camera and the autofocus Camera Module 3 in the purchase costing, including sold-out listings. The owner will compare prices in Kolkata's Chandni Market and on Robu before final selection. Sold-out status does not exclude a component from the costing submitted to the principal. Both cameras require the Pi Zero-specific CSI cable. Count one selected camera in the budget; retain autofocus as the final-product target. This is a costing deliverable for the 15 December proof of concept, not a purchase order or evidence of assembled hardware.
+
+The current [purchase-only Excel costing](../hardware/bom/history/Immortals_Purchase_Only_BOM_Dec15_2026-11-16.xlsx) supersedes the earlier broad procurement workbook for this milestone. It contains 35 priced component/alternative rows on one worksheet, with common modules, specialty/stock-limited components, BP alternatives and both camera choices. The default basic-camera/module-BP total is **INR 10,593.50** including the listed GST and provisional main-power allowance, excluding delivery and unresolved integration parts. Selecting the digital-BP donor gives **INR 10,836.50**. Autofocus adds **INR 2,952.00**. Only one BP route and one camera are counted. The owned Pi 5, Zigbee, solar panel, main battery and touchscreen, fabricated enclosure and duplicate replacements are excluded. Online prices are reference quotes for local comparison, not confirmed Chandni prices.
+
+The lower-cost scale power estimate is **0.91789 W** using conservative ESP32, VL53L0X, HX711 and bridge assumptions. Eight hours requires approximately **3750 mAh** including 85% conversion efficiency, 80% usable capacity and 25% reserve; round the minimum to 4000 mAh. Retain the listed **1S 5000 mAh** cell for additional margin, with an estimated reserve-adjusted runtime of 10.67 hours. This updated estimate replaces the earlier TF-Luna load assumption for the low-cost prototype. Current draw, capacity, cutoff and peak behavior still need assembled-device measurements. Main BMS/charger/solar choices remain provisional until the battery and panel labels are known. See [purchase-costing validation](../../artifacts/validation/PURCHASE_BOM_2026-11-16.md).
+
+The owner requires **automatic BP data transfer**, with two possible routes. Prefer a suitable cuff-pressure module if available and build the pressure acquisition/pneumatic arrangement. The low-cost HX710B 0–40 kPa module is a bench candidate; pressure sensing alone does not calculate validated systolic/diastolic BP. Provide the cuff/tubing, inflation/controlled deflation, calibrated pressure conversion and oscillometric processing needed by the selected method. If this route is unavailable, use a normal digital BP machine as a donor and inspect its internal signal/data interface. A consumer BP machine is not assumed to expose UART. Decode the actual protocol/display/pressure path and verify voltages before connection to 3.3 V Pi GPIO. Do not purchase both routes as required parts or report automatic BP integration complete before it works.
+
+Cardboard illustrates layout and use only. It is not a load-bearing patient scale frame. Demonstrate weighing with suitable bench loads until a rigid platform, overload stops and calibration support the intended human load. ECG power and signal isolation requirements remain in force for human-connected use. Demonstration software must preserve unavailable/unreliable readings rather than inventing vitals.
+
 ## 4. Hardware and measurement scope
 
 ### 4.1 Main device
 
-- **Compute:** Raspberry Pi 5 on the sender device.
-- **Operator display:** 7-inch touchscreen (the sensor-monitor development baseline also specifies a 1024 × 600 HDMI display).
-- **Field enclosure:** compact, hard/rugged and easy to carry; IP-rated design is a target and must be validated by enclosure testing.
+- **Compute:** Raspberry Pi 5 inside the sender suitcase for main processing and all local AI models. Pi Zero 2 W is a detachable capture/UI accessory, not a replacement for Pi 5.
+- **Operator display:** reuse the owner's Waveshare 7-inch touchscreen in the detachable Pi Zero 2 W control unit. Verify its exact model, resolution, HDMI/USB-touch connections and measured battery load. Reusing the display does not establish compatibility or runtime of the new tablet arrangement.
+- **Field enclosure:** toolbox/suitcase with two clips, inside-lid solar panel, fitted sensor/cuff/tubing storage and detachable lower weight/height station. Ruggedness/IP rating, structural loads, cable routing and thermal behavior require assembled-device testing.
 - **Wireless data link:** Zigbee between sender and receiver/gateway.
-- **Patient scale:** proposed Bluetooth-enabled weighing machine; exact model, pairing protocol, units, calibration, and reconnection behavior remain to be selected/verified.
-- **Height:** proposed time-of-flight LiDAR measurement with the flat device held/positioned at the patient's head and the sensor aimed toward the ground. This requires a repeatable reference geometry, known device orientation, floor-distance baseline, and validation against a measured height. A single distance reading is not automatically a reliable height measurement without these controls.
-- **Other proposed peripherals:** GPS, camera, microphone, and a blood-pressure measurement device. Their exact models, electrical interfaces, data contracts, and validation status are not specified by the supplied wiring guide.
+- **Patient scale:** one custom Bluetooth-enabled station with four load cells and an ESP32, stored in the detachable lower section and placed on the ground. Bridge/ADC, platform capacity, calibration, units and reconnection require selection/verification.
+- **Height:** telescopic stand integrated with the weight station and a ToF LiDAR fixture. Choose and document the geometry, reference plane, stand locking, orientation and patient positioning. The earlier handheld ground-ranging arrangement is a historical candidate. A distance value alone is not a validated height result.
+- **Peripheral allocation:** autofocus camera, two INMP441 microphones, selected infrared temperature sensor, red laser and touchscreen reside in the Pi Zero control unit. GPS, Zigbee and remaining retained sensors connect to Pi 5 in the main case. BP needs a dedicated cuff/pump/measurement device and a supported data interface. Model selection, electrical interfaces and clinical acceptance remain open.
 
 ### 4.2 Current connected sensors versus the intended final sensor set
 
@@ -584,11 +634,11 @@ Suggested milestone sequence:
 
 ## 15. Open decisions
 
-1. Exact Bluetooth scale model/protocol and unit/calibration handling.
-2. Exact LiDAR sensor model and a repeatable height measurement fixture/reference method.
+1. Custom ESP32 Bluetooth scale protocol, four-load-cell bridge/ADC, safe platform capacity and unit/calibration handling, under the 16 November 2026 owner design.
+2. Exact LiDAR model and telescopic-stand fixture/reference method, including stand locks, platform reference and repeatable patient geometry.
 3. Exact blood-pressure monitor and interface (Bluetooth, USB, serial or other supported data protocol).
-4. GPS module/source, camera model, microphone model and intended use/storage rules.
-5. Battery chemistry/capacity, charging architecture, electrical isolation and expected runtime.
+4. GPS module/source with realistic indoor reception limits, autofocus camera and Pi Zero CSI cable, two INMP441 stereo capture/driver arrangement, touchscreen model and intended use/storage rules.
+5. Three battery domains, main 3S versus 4S decision, charging/power-path architecture, dock connector ratings, complete ECG isolation and measured runtime. Scale target is eight hours. Main-case and tablet runtime targets remain to be agreed.
 6. Target IP rating and test method; enclosure materials, seals, ports, strap/handle and cleaning requirements.
 7. Required record fields, waveform sampling/downsampling policy, cloud update frequency, retention and queue-size limits.
 8. Final patient-data access policy and authentication/authorization model before real health data is used.
@@ -596,6 +646,15 @@ Suggested milestone sequence:
 10. Whether weight/height/BP/GPS/camera are part of the first field release or staged after the current documented sensor baseline.
 
 ---
+
+> **Document consolidation — 17 November 2026:** This current master was moved
+> into `docs/planning` without changing its requirements. Shared documents are
+> indexed in [the documentation hub](../README.md). The
+> [BOM index](../hardware/bom/README.md) identifies the latest supplied editable
+> workbook, the later automatic-inflation print checklist, and the earlier
+> verified costing files. Those deliverables differ; earlier totals remain dated
+> history. All changes must be recorded in
+> [development.md](../development/development.md).
 
 # Appendices — supplied source documents
 

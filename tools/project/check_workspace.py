@@ -11,7 +11,7 @@ from urllib.parse import unquote
 
 
 ROOT = Path(__file__).resolve().parents[2]
-MASTER = "IMMORTALS_MASTER_PROJECT_DOCUMENT_v2.md"
+MASTER = "docs/planning/IMMORTALS_MASTER_PROJECT_DOCUMENT_v2.md"
 COMPONENT_ENTRYPOINTS = (
     "Sender/main.py",
     "Receiver/main.py",
@@ -59,9 +59,10 @@ def document_text(path: Path) -> str:
 def check_links(errors: list[str]) -> dict:
     documents = [
         ROOT / name for name in (
-            "README.md", "AGENTS.md", MASTER, "GOAL_REQUIREMENTS.md",
-            "PROJECT_UPGRADE_PLAN.md", "Website/README.md", "Website/AGENTS.md",
+            "README.md", "AGENTS.md", "Website/README.md", "Website/AGENTS.md",
             "artifacts/README.md", "archive/README.md", "tools/project/README.md",
+            "artifacts/validation/BOM_RESEARCH_2026-11-16.md",
+            "artifacts/validation/PURCHASE_BOM_2026-11-16.md",
         )
     ]
     documents.extend(sorted((ROOT / "docs").rglob("*.md")))
@@ -118,7 +119,7 @@ def check_record(relative: str, errors: list[str]) -> dict:
         "moved_files_checked": len(manifest["moved_files"]),
         "protected_files_checked": len(manifest["protected_files"]),
         "document_edits_checked": len(manifest["document_edits"]),
-        "master_sha256": next(item["sha256"] for item in manifest["protected_files"] if item["path"] == MASTER),
+        "master_sha256": next(item["sha256"] for item in manifest["protected_files"] if Path(item["path"]).name == Path(MASTER).name),
     }
 
 
@@ -128,7 +129,7 @@ def main() -> int:
     parser.add_argument("--report", help="Write JSON results to a workspace-relative path")
     args = parser.parse_args()
     errors: list[str] = []
-    for name in (MASTER, *COMPONENT_ENTRYPOINTS, "Website/.git"):
+    for name in (MASTER, ".gitmodules", "docs/development/development.md", "Website/docs/development.md", *COMPONENT_ENTRYPOINTS, "Website/.git"):
         if not workspace_path(name).exists():
             errors.append(f"Missing required project path: {name}")
     statistics = {"components_checked": len(COMPONENT_ENTRYPOINTS)}

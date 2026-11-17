@@ -1,0 +1,6 @@
+# Preserve supplied document bytes and treat their formats as binary in Git.
+*.pdf binary
+*.xlsx binary
+*.xls binary
+*.docx binary
+*.doc binary

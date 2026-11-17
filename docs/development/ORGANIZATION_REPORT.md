@@ -1,6 +1,6 @@
 # Folder organization — 13 November 2026
 
-The user designated [IMMORTALS_MASTER_PROJECT_DOCUMENT_v2.md](../../IMMORTALS_MASTER_PROJECT_DOCUMENT_v2.md)
+The user designated [IMMORTALS_MASTER_PROJECT_DOCUMENT_v2.md](../planning/IMMORTALS_MASTER_PROJECT_DOCUMENT_v2.md)
 as the main project plan. The master and its supplied appendices were read before
 applying these structural changes. The original master document remains at the
 root, with its content and 12 November date preserved.
@@ -40,13 +40,13 @@ workspace bounds. Original documents edited for navigation were backed up.
 
 Local records, excluded from Git:
 
-- [Move manifest](../../archive/organization/2026-11-13/manifest.json): old/new paths,
+- Move manifest, `archive/organization/2026-11-13/manifest.json`: old/new paths,
   original SHA-256 hashes, protected files, and documented navigation edits.
-- [Original inventory](../../archive/organization/2026-11-13/baseline.json):
+- Original inventory, `archive/organization/2026-11-13/baseline.json`:
   pre-organization file sizes and hashes, excluding dependency/build/tool internals.
-- [Original documents](../../archive/organization/2026-11-13/originals/):
+- Original documents, `archive/organization/2026-11-13/originals/`:
   source copies before link/navigation edits.
-- [Applied move script](../../archive/organization/2026-11-13/organize.ps1):
+- Applied move script, `archive/organization/2026-11-13/organize.ps1`:
   the bounded one-time relocation procedure.
 
 Historical component reports and raw JSON retain their original dates, path
@@ -79,11 +79,16 @@ and uses an isolated `.work/cache/test-dependencies` cache containing the pinned
 `uroman==1.3.1.1` and its regex dependency. The speech follow-up passed without
 changing the speech application or the Pi runtime.
 
-Receipts: [final local check results](../../artifacts/validation/organization/2026-11-13/checks.json)
-and [file/link preservation results](../../artifacts/validation/organization/2026-11-13/preservation.json).
-The [initial check log](../../artifacts/logs/organization/2026-11-13/local-checks.log)
-and [targeted follow-up log](../../artifacts/logs/organization/2026-11-13/followup-checks.log)
-retain both the setup findings and their resolution.
+Local receipt paths, relative to the project root:
+
+- Final local check results: `artifacts/validation/organization/2026-11-13/checks.json`.
+- File/link preservation results: `artifacts/validation/organization/2026-11-13/preservation.json`.
+- Initial check log: `artifacts/logs/organization/2026-11-13/local-checks.log`.
+- Targeted follow-up log: `artifacts/logs/organization/2026-11-13/followup-checks.log`.
+
+These files retain both the setup findings and their resolution. The 17 November
+navigation update labels excluded evidence as local paths so the published report
+does not link to files absent from GitHub. The historical results remain unchanged.
 
 ## Project scope recorded
 

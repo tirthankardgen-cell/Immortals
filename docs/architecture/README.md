@@ -1,6 +1,6 @@
 # Architecture references
 
-Use the [master plan's architecture and expanded pipeline](../../IMMORTALS_MASTER_PROJECT_DOCUMENT_v2.md)
+Use the [master plan's architecture and expanded pipeline](../planning/IMMORTALS_MASTER_PROJECT_DOCUMENT_v2.md)
 for project requirements. These original supplied images are retained as
 supporting design references:
 

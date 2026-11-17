@@ -2,7 +2,7 @@
 
 Portable, offline-first health screening and patient monitoring on Raspberry Pi 5.
 
-Start with the [master project plan](IMMORTALS_MASTER_PROJECT_DOCUMENT_v2.md).
+Start with the [master project plan](docs/planning/IMMORTALS_MASTER_PROJECT_DOCUMENT_v2.md).
 It is the main plan for the whole project: scope, architecture, hardware direction,
 December 2026 target, and acceptance criteria. The [implementation status index](docs/planning/IMPLEMENTATION_STATUS.md)
 connects that plan to the current components and their recorded evidence.
@@ -23,7 +23,7 @@ same patient workflow under the master plan.
 |---|---|---|
 | `Sender_v2/` | Current patient touchscreen, sensor acquisition, recordings, Zigbee outbox | [Sender guide](Sender_v2/README.md) |
 | `Receiver_v2/` | Current Zigbee gateway, durable storage, Firebase upload worker | [Gateway guide](Receiver_v2/README.md) |
-| `Website/` | Patient dashboard; independent Git repository and Vercel application | [Website guide](Website/README.md) |
+| `Website/` | Patient dashboard; independent Git repository and Vercel application | [Website guide](https://github.com/tirthankardgen-cell/Immortals-dashboard/blob/main/README.md) |
 | `Speech_Test_Phase3/` | Standalone Hindi/Bengali offline speech and speaker tester | [Speech guide](Speech_Test_Phase3/README.md) |
 | `Sender/` | Preserved sensor/Zigbee baseline, original references, three sender versions | [Sender baseline](Sender/project.md) |
 | `Receiver/` | Preserved receiver baseline, original references, release snapshot | [Receiver baseline](Receiver/project.md) |
@@ -31,20 +31,34 @@ same patient workflow under the master plan.
 These component folder names and their Pi deployment paths follow the master
 plan. Their launchers, environments, and source synchronization remain component-local.
 
+For a complete checkout, including the independent website repository:
+
+```powershell
+git clone --recurse-submodules https://github.com/tirthankardgen-cell/Immortals.git
+```
+
+For an existing clone, run `git submodule update --init --recursive` from its
+root. `.gitmodules` records the website repository; the project pins its exact
+commit. Website document links use its GitHub repository so they work in the
+published documentation. The same files are available locally under `Website/`.
+
 ## Project resources
 
 | Location | Contents |
 |---|---|
-| [Documentation index](docs/README.md) | Planning references, architecture images, original wiring guide, development guidance |
+| [Documentation index](docs/README.md) | Single hub for the master, planning, BOMs, wiring, decisions and component manuals |
+| [BOM and purchase files](docs/hardware/bom/README.md) | Latest print checklist, editable purchase workbook and dated research history |
+| [development.md](docs/development/development.md) | Mandatory dated change, decision, validation and recovery history |
 | [Project structure](docs/development/PROJECT_STRUCTURE.md) | Folder map, file placement rules, legacy versions, validation commands |
 | `tools/project/` | Workspace verification and local regression-check runner |
 | [Artifacts index](artifacts/README.md) | Local screenshots, browser captures, logs, validation evidence |
 | [Archive index](archive/README.md) | Historical scripts, source snapshots, references, organization records |
 | `.work/` | Private Pi access note, device backups, reusable download/model caches |
 
-`GOAL_REQUIREMENTS.md` and `PROJECT_UPGRADE_PLAN.md` at the root are navigation
-notes for their relocated source documents. Supporting plans and historical
-snapshots are interpreted through the master plan.
+All shared documents are under `docs/`; start with its index. Redundant root
+planning shortcuts have been removed. Component manuals stay beside their
+operational code and are linked from the same index. Supporting plans and
+historical snapshots are interpreted through the master plan.
 
 ## Local checks
 
@@ -69,3 +83,8 @@ For website development:
 
 The [organization report](docs/development/ORGANIZATION_REPORT.md) records the
 13 November 2026 folder changes, preservation checks, and local test results.
+
+The [17 November consolidation record](docs/development/ORGANIZATION_REPORT_2026-11-17.md)
+records document/BOM choices, duplicate removals and exact source-to-destination paths.
+Every agent must update [development.md](docs/development/development.md) in the
+same commit as every repository change.

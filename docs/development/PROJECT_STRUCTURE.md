@@ -1,16 +1,15 @@
 # Project structure and development guide
 
-The [master project plan](../../IMMORTALS_MASTER_PROJECT_DOCUMENT_v2.md) governs
+The [master project plan](../planning/IMMORTALS_MASTER_PROJECT_DOCUMENT_v2.md) governs
 the project. Folder conventions below preserve its established source roots
 and deployment boundaries.
 
 ```text
 Immortals/
-├── IMMORTALS_MASTER_PROJECT_DOCUMENT_v2.md  main project plan
 ├── README.md                              project entry point
 ├── AGENTS.md                              project-wide working guidance
-├── GOAL_REQUIREMENTS.md                    requirements navigation note
-├── PROJECT_UPGRADE_PLAN.md                 implementation-plan navigation note
+├── .gitmodules                            independent website repository mapping
+├── .gitattributes                         binary preservation of PDF/Office documents
 ├── Sender_v2/                             current sender application
 ├── Receiver_v2/                           current receiver gateway
 ├── Website/                               standalone website Git repository
@@ -18,10 +17,10 @@ Immortals/
 ├── Sender/                                preserved sender baseline/versions
 ├── Receiver/                              preserved receiver baseline/versions
 ├── docs/
-│   ├── planning/                          requirements, implementation notes/status
+│   ├── planning/                          current master, requirements, implementation status
 │   ├── architecture/                      supplied architecture images
-│   ├── hardware/                          original wiring document
-│   └── development/                       structure and organization report
+│   ├── hardware/                          wiring, prototype decisions, bom/ and dated BOM history
+│   └── development/                       development.md, structure, organization/move records
 ├── tools/project/                         reusable local checks
 ├── artifacts/                             local evidence, browser captures, logs
 ├── archive/                               historical sessions/snapshots/references
@@ -46,6 +45,11 @@ The receiver v2 service is `immortals-receiver-v2.service`. Source synchronizati
 is available from [sender v2 sync](../../Sender_v2/sync.py) and
 [gateway v2 sync](../../Receiver_v2/sync.py).
 
+The root `.gitmodules` maps `Website/` to its standalone GitHub repository. A
+complete fresh checkout uses `git clone --recurse-submodules`; an existing clone
+can run `git submodule update --init --recursive`. Keep the recorded website
+commit and its independent Git/Vercel root together when publishing changes.
+
 ## Preserved releases
 
 - `Sender/versions/01_sensor_only/`: original sensor-only snapshot.
@@ -65,6 +69,9 @@ components; future integration follows the [master/status mapping](../planning/I
 | Cross-component specification or status | `docs/planning/` |
 | Architecture drawings and diagrams | `docs/architecture/` |
 | Wiring, hardware references | `docs/hardware/` |
+| Current purchase workbook and print checklist | `docs/hardware/bom/` |
+| Distinct superseded BOM research | `docs/hardware/bom/history/` |
+| Mandatory append-only development log | `docs/development/development.md` |
 | Development/structure guidance | `docs/development/` |
 | Reusable workspace checks | `tools/project/` |
 | Screenshots and browser evidence | `artifacts/screenshots/`, `artifacts/browser/` |
@@ -74,7 +81,8 @@ components; future integration follows the [master/status mapping](../planning/I
 | Private access, Pi backups, download/model cache | `.work/PI_ACCESS.md`, `.work/backups/`, `.work/cache/` |
 
 Private local material and generated evidence are excluded by the root
-`.gitignore`. `Website/.gitignore` continues to govern its separate repository.
+`.gitignore`, except the archive/evidence indexes and the two explicitly tracked
+16 November BOM validation summaries. `Website/.gitignore` continues to govern its separate repository.
 Keep runtime patient databases/results and gateway credentials on their intended
 devices and outside source synchronization.
 
@@ -116,3 +124,17 @@ python -B tools/project/check_workspace.py --record archive/organization/2026-11
 The historical record checks file preservation against that date's baseline.
 Later intentional feature changes can differ from that snapshot; routine
 structure/link checks use the command without `--record`.
+
+## 17 November documentation consolidation
+
+The master now lives in `docs/planning/IMMORTALS_MASTER_PROJECT_DOCUMENT_v2.md`.
+The root planning shortcuts were removed; original requirements and notes remain
+in `docs/planning`. BOMs live in `docs/hardware/bom`, with dated historical files
+kept separately. Same-directory duplicate v2 `project.md` manuals were removed;
+the corresponding README remains canonical. Runtime/release manuals, independent
+website documentation and synchronized speech evidence retain their deployment
+boundaries and are discoverable through [the central index](../README.md).
+
+Read and update [development.md](development.md) for every change. The
+[consolidation report](ORGANIZATION_REPORT_2026-11-17.md) and
+[move record](organization/2026-11-17-moves.json) explain the changes.
