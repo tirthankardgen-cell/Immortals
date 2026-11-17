@@ -228,3 +228,58 @@ entries and append corrections. Never include secrets or patient information.
   and website documentation commit in its independent repository, preserving
   subsequent work and log history. Original document hashes and private backups
   remain the recovery references listed in the move manifest.
+
+## 2026-11-18 — Publication receipts and completion verification
+
+- **Date/time:** 2026-11-18, 01:42:41 +05:30 (Asia/Calcutta).
+- **Author:** Codex, finishing the owner's interrupted organization goal.
+- **Changed paths:** this development log only. The organization changes and
+  website documentation were already published; this entry closes their pending
+  publication and fresh-clone records without repeating the completed work.
+- **What changed:** recorded the actual main push receipts and successful
+  complete-clone validation. The canonical document hub, current BOM files,
+  dated unique history, recoverable duplicate removals and mandatory agent logging
+  rules are present in the published repositories.
+- **Why needed:** the earlier entries deliberately left final publication and
+  clone acceptance pending. The owner needs confirmed results in the durable
+  decision history, not an assumed or unrecorded completion.
+- **Decision:** publish this final receipt as a separate log-only commit, keeping
+  the original dated entries and source-document bytes intact. Retain private
+  backups and raw verification captures in their established local locations.
+- **Publication:** on 17 November, project `git push origin main` succeeded with
+  `a72a932..e36be07`, `main -> main`. Published project commit:
+  `e36be07cd876282ac7a87e149793b00a062ffe21`. Website push succeeded with
+  `2b87ccb..f58db5c`, `main -> main`; published website commit:
+  `f58db5cf7124211bbfd3413740aff2b71e6a7807`. Independent `git ls-remote --heads
+  origin main` queries returned those exact commits. The parent pins that same
+  website commit through its registered submodule.
+- **Validation:** on 17 November at 22:41:35, a fresh recursive/shallow GitHub
+  clone retrieved both repositories and passed `python -B
+  tools/project/check_workspace.py`: six component entry points, 24 documents,
+  156 local links, zero errors. All four BOM files and the original wiring DOCX
+  matched their preserved source bytes, and both clone working trees were clean.
+  Evidence:
+  `artifacts/validation/document-organization-2026-11-17-publication-verification.json`.
+  The private verification clone is
+  `.work/cache/document-organization-publication-2026-11-17-e36be07/`.
+  On 18 November, both origins were fetched again; each local main was ahead
+  zero, behind zero, with a clean working tree before this log follow-up.
+  The affected workspace check and staged whitespace check will be run after
+  this append; their actual results follow before publication.
+- **Known gaps / scope:** the print checklist and editable workbook have distinct
+  BP configurations and totals, clearly labelled in the BOM index. Both originals
+  and the unique historical workbooks are preserved. This documentation task
+  establishes no new Pi, cloud, clinical or field acceptance. No application or
+  deployment-source-manifest edits were made by this completion follow-up.
+- **Rollback/recovery:** the published organization is `e36be07`, with root
+  pre-change `a72a932` and website pre-change `2b87ccb`. Use Git history, the
+  committed six-move/four-removal manifest and
+  `.work/backups/document-organization/2026-11-17/` to recover originals. Append
+  future corrections instead of rewriting this history.
+
+- **Final follow-up result:** 2026-11-18, 01:43:45 +05:30 (Asia/Calcutta).
+  `python -B tools/project/check_workspace.py --report
+  artifacts/validation/document-organization-2026-11-18-final-workspace.json`
+  passed with six components, 24 documents, 156 local links and zero errors.
+  `git diff --check` passed. This follow-up changes only this log; the published
+  organization and website source remain unchanged.
